@@ -1,5 +1,29 @@
-<!-- BEGIN:nextjs-agent-rules -->
-# This is NOT the Next.js you know
+# InvestDesk Agent Rules
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
+This project is no longer a Next.js web app. The old frontend code has been removed.
+
+Current source of truth:
+
+- `docs/architecture.md`
+
+Current product direction:
+
+- Feishu Base is the database, application UI, and Agent center.
+- InvestDesk Skills define structured data protocols for holdings, transactions, insights, and watchlist rules.
+- The self-developed system should focus on initialization, template setup, and real-time quote/NAV synchronization.
+- The future codebase should be a lightweight worker/CLI project, likely `Node.js + TypeScript + Playwright + lark-cli`.
+
+Do not recreate the old Next.js frontend unless the user explicitly asks for it.
+
+When adding implementation later, prefer a worker-oriented structure:
+
+```text
+src/
+  cli/
+  feishu/
+  instruments/
+  quotes/
+  jobs/
+```
+
+Keep user-facing investment recommendations phrased as reminders or review prompts, not automatic buy/sell instructions.
